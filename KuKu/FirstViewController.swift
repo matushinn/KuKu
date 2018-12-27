@@ -47,6 +47,10 @@ class FirstViewController: UIViewController {
         }
         
     }
+    @IBAction func go(_ sender: Any) {
+        self.performSegue(withIdentifier: "toNext", sender: nil)
+    }
+    
     
 
     

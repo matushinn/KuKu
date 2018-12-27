@@ -11,10 +11,12 @@ import UIKit
 class SecondViewController: UIViewController {
 
     var modeNum:Int = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
     }
     
     //UIButtonにするとsender.tagが使える

@@ -43,7 +43,10 @@ class ThirdViewController: UIViewController {
         }
     }
     
-
+    @IBAction func back(_ sender: Any) {
+        self.performSegue(withIdentifier: "toFirst", sender: nil)
+    }
+    
    
 
 }

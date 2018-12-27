@@ -27,6 +27,8 @@ class QuestionViewController: UIViewController {
     var count:Double = 0.0
     //数字を判別するフラグ
     var modeNum:Int = 0
+    //問題を判別するインデックス
+    var index:Int = 1
     
     //秒数を判別するフラグ
     var modeSecond:Int = 0
@@ -37,6 +39,8 @@ class QuestionViewController: UIViewController {
     var answer:Int = 0
     
     var result:Int=0
+    
+
     
     //問題数
     var lastQuestionNum:Int = 0
@@ -90,7 +94,8 @@ class QuestionViewController: UIViewController {
     }
     //    問題を出す関数
     func showQuestion(){
-        leftNumber = 1
+        
+        leftNumber = modeNum
         rightNumber=Int(arc4random(lower: 1, upper: 10))
         leftLabel.text = String(leftNumber)
         rightLabel.text = String(rightNumber)
