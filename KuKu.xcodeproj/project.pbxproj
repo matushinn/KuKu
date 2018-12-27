@@ -15,6 +15,8 @@
 		371D88CD21D3A2FC00560514 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 371D88CC21D3A2FC00560514 /* AudioToolbox.framework */; };
 		371D88CF21D3A38600560514 /* hanamaru.png in Resources */ = {isa = PBXBuildFile; fileRef = 371D88CE21D3A38600560514 /* hanamaru.png */; };
 		371D88D121D3A39500560514 /* batu.png in Resources */ = {isa = PBXBuildFile; fileRef = 371D88D021D3A39500560514 /* batu.png */; };
+		371D88F121D465AF00560514 /* suuzi4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 371D88F021D465AF00560514 /* suuzi4.jpg */; };
+		371D88F321D465BF00560514 /* suuzi5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 371D88F221D465BF00560514 /* suuzi5.jpg */; };
 		37E5533E21D36B3100FC4052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E5533D21D36B3100FC4052 /* AppDelegate.swift */; };
 		37E5534321D36B3100FC4052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E5534121D36B3100FC4052 /* Main.storyboard */; };
 		37E5534521D36B3300FC4052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E5534421D36B3300FC4052 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		371D88CC21D3A2FC00560514 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		371D88CE21D3A38600560514 /* hanamaru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hanamaru.png; path = ../../../Downloads/hanamaru.png; sourceTree = "<group>"; };
 		371D88D021D3A39500560514 /* batu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = batu.png; path = ../../../Downloads/batu.png; sourceTree = "<group>"; };
+		371D88F021D465AF00560514 /* suuzi4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = suuzi4.jpg; path = "../../../Downloads/OriginalNumberGame-master/OriginalNumberGame/Assets.xcassets/suuzi4.imageset/suuzi4.jpg"; sourceTree = "<group>"; };
+		371D88F221D465BF00560514 /* suuzi5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = suuzi5.jpg; path = ../../../Downloads/suuzi5.jpg; sourceTree = "<group>"; };
 		37E5533A21D36B3100FC4052 /* KuKu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuKu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E5533D21D36B3100FC4052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E5534221D36B3100FC4052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				371D88C821D37B2800560514 /* QuestionViewController.swift */,
 				371D88CA21D37B3700560514 /* ResaultViewController.swift */,
 				371D88CE21D3A38600560514 /* hanamaru.png */,
+				371D88F221D465BF00560514 /* suuzi5.jpg */,
+				371D88F021D465AF00560514 /* suuzi4.jpg */,
 				371D88D021D3A39500560514 /* batu.png */,
 			);
 			path = KuKu;
@@ -189,6 +195,8 @@
 				37E5534821D36B3300FC4052 /* LaunchScreen.storyboard in Resources */,
 				37E5534521D36B3300FC4052 /* Assets.xcassets in Resources */,
 				37E5535221D36DEF00FC4052 /* readme.txt in Resources */,
+				371D88F121D465AF00560514 /* suuzi4.jpg in Resources */,
+				371D88F321D465BF00560514 /* suuzi5.jpg in Resources */,
 				37E5534321D36B3100FC4052 /* Main.storyboard in Resources */,
 				371D88D121D3A39500560514 /* batu.png in Resources */,
 			);

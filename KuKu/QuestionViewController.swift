@@ -24,7 +24,7 @@ class QuestionViewController: UIViewController {
     
      var timer:Timer!
     
-    var count:Double = 90.0
+    var count:Double = 0.0
     //数字を判別するフラグ
     var modeNum:Int = 0
     
@@ -39,7 +39,7 @@ class QuestionViewController: UIViewController {
     var result:Int=0
     
     //問題数
-    var questionNum:Int = 0
+    var lastQuestionNum:Int = 0
     
     
     override func viewDidLoad() {
@@ -62,6 +62,7 @@ class QuestionViewController: UIViewController {
         startTimer()
         
     }
+    
     //何桁の問題か判別するための値渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResault"{
@@ -69,6 +70,7 @@ class QuestionViewController: UIViewController {
             
             resultVC.modeNum = modeNum
             resultVC.modeSecond = modeSecond
+            resultVC.lastQuestionNum = lastQuestionNum
         }
     }
     //乱数
@@ -90,8 +92,8 @@ class QuestionViewController: UIViewController {
     //回答チェック
     func checkQuestion(){
         if result == answer{
-            questionNum += 1
-            questionNumLabel.text = String(questionNum)
+            lastQuestionNum += 1
+            questionNumLabel.text = String(lastQuestionNum)
             //正解音
             AudioServicesPlayAlertSound(1025)
             
@@ -183,7 +185,7 @@ class QuestionViewController: UIViewController {
         count = count - 0.1
         timerLabel.text = String(format: "%.1f", count)
         
-        if count > 0{
+        if count < 0{
             self.performSegue(withIdentifier: "toResault", sender: nil)
         }
         
