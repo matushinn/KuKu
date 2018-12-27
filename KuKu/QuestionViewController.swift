@@ -13,12 +13,12 @@ import LTMorphingLabel
 class QuestionViewController: UIViewController {
     
     
-    @IBOutlet weak var leftLabel: UILabel!
-    @IBOutlet weak var rightLabel: UILabel!
-    @IBOutlet weak var calcLabel: UILabel!
-    @IBOutlet weak var answerLabel: UILabel!
-    @IBOutlet weak var questionNumLabel: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var leftLabel: LTMorphingLabel!
+    @IBOutlet weak var rightLabel: LTMorphingLabel!
+    @IBOutlet weak var calcLabel: LTMorphingLabel!
+    @IBOutlet weak var answerLabel: LTMorphingLabel!
+    @IBOutlet weak var questionNumLabel: LTMorphingLabel!
+    @IBOutlet weak var timerLabel: LTMorphingLabel!
     @IBOutlet weak var maruImageView: UIImageView!
     @IBOutlet weak var batsuImageView: UIImageView!
     
@@ -44,6 +44,7 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LTMorphing()
         
         switch modeSecond {
         case 30:
@@ -62,7 +63,13 @@ class QuestionViewController: UIViewController {
         startTimer()
         
     }
-    
+    func LTMorphing(){
+        leftLabel.morphingEffect = .anvil
+        rightLabel.morphingEffect = .anvil
+        calcLabel.morphingEffect = .anvil
+        answerLabel.morphingEffect = .fall
+        questionNumLabel.morphingEffect = .pixelate
+    }
     //何桁の問題か判別するための値渡し
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResault"{
@@ -184,14 +191,27 @@ class QuestionViewController: UIViewController {
     @objc func update(){
         count = count - 0.1
         timerLabel.text = String(format: "%.1f", count)
-        
+        if count < 10{
+            timerLabel.morphingEffect = .pixelate
+        }
         if count < 0{
             self.performSegue(withIdentifier: "toResault", sender: nil)
         }
         
     }
     
+}
+extension QuestionViewController: LTMorphingLabelDelegate {
     
+    func morphingDidStart(_ label: LTMorphingLabel) {
+        print("morphingDidStart")
+    }
     
-
+    func morphingDidComplete(_ label: LTMorphingLabel) {
+        print("morphingDidComplete")
+    }
+    
+    func morphingOnProgress(_ label: LTMorphingLabel, progress: Float) {
+        print("morphingOnProgress", progress)
+    }
 }

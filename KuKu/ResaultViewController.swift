@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import LTMorphingLabel
 
 class ResaultViewController: UIViewController {
     
-    @IBOutlet weak var numTitleLabel: UILabel!
-    @IBOutlet weak var secondTitleLabel: UILabel!
+    @IBOutlet weak var numTitleLabel: LTMorphingLabel!
+    @IBOutlet weak var secondTitleLabel: LTMorphingLabel!
     
-    @IBOutlet weak var lastQueTitleLabel: UILabel!
-    @IBOutlet weak var lastQueNumLabel: UILabel!
+    @IBOutlet weak var lastQueTitleLabel: LTMorphingLabel!
+    @IBOutlet weak var lastQueNumLabel: LTMorphingLabel!
     
    
     //数字を判別するフラグ
@@ -38,15 +39,16 @@ class ResaultViewController: UIViewController {
 
         lastQueNumLabel.text = "\(lastQuestionNum)問"
         lastQueTitleLabel.text = "Last Score"
-        secondTitleLabel.text = "\(modeSecond)+秒"
+        secondTitleLabel.text = "\(modeSecond)秒"
         numTitleLabel.text = "\(modeNum)の段"
         
+        lastQueNumLabel.morphingEffect = .burn
     }
     
-@IBAction func back(_ sender: Any) {
+    @IBAction func back(_ sender: Any) {
         self.performSegue(withIdentifier: "toFirst", sender: nil)
     }
     
     
-
+    
 }

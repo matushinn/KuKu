@@ -7,24 +7,63 @@
 //
 
 import UIKit
+import LTMorphingLabel
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: LTMorphingLabel!
+    
+    private var effectTimer: Timer?
+    var index = 0
+    
+    let textList = ["KuKu!!","KUKU!!","kuku!!"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.morphingEffect = .sparkle
 
-        // Do any additional setup after loading the view.
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        effectTimer = Timer.scheduledTimer(timeInterval: 2.0,
+                                           target: self,
+                                           selector: #selector(updateLabel(timer:)), userInfo: nil,
+                                           repeats: true)
+        effectTimer?.fire()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        effectTimer?.invalidate()
+    }
+    @objc func updateLabel(timer: Timer) {
+        titleLabel.text = textList[index]
+       
+        index += 1
+        if index >= textList.count {
+            index = 0
+        }
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
+extension FirstViewController: LTMorphingLabelDelegate {
+    
+    func morphingDidStart(_ label: LTMorphingLabel) {
+        print("morphingDidStart")
+    }
+    
+    func morphingDidComplete(_ label: LTMorphingLabel) {
+        print("morphingDidComplete")
+    }
+    
+    func morphingOnProgress(_ label: LTMorphingLabel, progress: Float) {
+        print("morphingOnProgress", progress)
+    }
+}
+
+
