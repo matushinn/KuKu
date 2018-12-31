@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3715CD0921D99BF8002D5A23 /* child1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3715CD0821D99BF8002D5A23 /* child1.mp3 */; };
+		3715CD0B21D99BFE002D5A23 /* child3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3715CD0A21D99BFE002D5A23 /* child3.mp3 */; };
+		3715CD0E21D9A0CD002D5A23 /* goal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3715CD0D21D9A0CD002D5A23 /* goal.mp3 */; };
 		3717E25921D48A270051C977 /* suzi.png in Resources */ = {isa = PBXBuildFile; fileRef = 3717E25821D48A260051C977 /* suzi.png */; };
 		3717E25C21D48AE70051C977 /* suzi2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3717E25A21D48AE70051C977 /* suzi2.png */; };
 		3717E25F21D48CBA0051C977 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3717E25E21D48CB90051C977 /* yellow.png */; };
@@ -30,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3715CD0821D99BF8002D5A23 /* child1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = child1.mp3; path = ../../../Downloads/child1.mp3; sourceTree = "<group>"; };
+		3715CD0A21D99BFE002D5A23 /* child3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = child3.mp3; path = ../../../Downloads/child3.mp3; sourceTree = "<group>"; };
+		3715CD0C21D99F69002D5A23 /* KodomoRounded.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = KodomoRounded.otf; path = ../../../Downloads/KodomoRounded.otf; sourceTree = "<group>"; };
+		3715CD0D21D9A0CD002D5A23 /* goal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = goal.mp3; path = "../../../Downloads/3DMaze20171009 (1) 2/Assets/Sounds/goal.mp3"; sourceTree = "<group>"; };
 		3717E25821D48A260051C977 /* suzi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = suzi.png; path = "../../../スクリーンショット/suzi.png"; sourceTree = "<group>"; };
 		3717E25A21D48AE70051C977 /* suzi2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = suzi2.png; path = ../../../Desktop/suzi2.png; sourceTree = "<group>"; };
 		3717E25E21D48CB90051C977 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellow.png; path = ../../../Desktop/yellow.png; sourceTree = "<group>"; };
@@ -110,6 +117,7 @@
 				371D88C621D37B1300560514 /* ThirdViewController.swift */,
 				371D88C821D37B2800560514 /* QuestionViewController.swift */,
 				371D88CA21D37B3700560514 /* ResaultViewController.swift */,
+				3715CD0C21D99F69002D5A23 /* KodomoRounded.otf */,
 				371D88CE21D3A38600560514 /* hanamaru.png */,
 				371D88F221D465BF00560514 /* suuzi5.jpg */,
 				371D88F021D465AF00560514 /* suuzi4.jpg */,
@@ -117,6 +125,9 @@
 				3717E25821D48A260051C977 /* suzi.png */,
 				3717E25A21D48AE70051C977 /* suzi2.png */,
 				3717E25E21D48CB90051C977 /* yellow.png */,
+				3715CD0821D99BF8002D5A23 /* child1.mp3 */,
+				3715CD0A21D99BFE002D5A23 /* child3.mp3 */,
+				3715CD0D21D9A0CD002D5A23 /* goal.mp3 */,
 			);
 			path = KuKu;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3715CD0921D99BF8002D5A23 /* child1.mp3 in Resources */,
 				371D88CF21D3A38600560514 /* hanamaru.png in Resources */,
 				37E5535321D36DEF00FC4052 /* yojo.ttf in Resources */,
 				37E5534821D36B3300FC4052 /* LaunchScreen.storyboard in Resources */,
@@ -207,7 +219,9 @@
 				371D88F121D465AF00560514 /* suuzi4.jpg in Resources */,
 				3717E25921D48A270051C977 /* suzi.png in Resources */,
 				371D88F321D465BF00560514 /* suuzi5.jpg in Resources */,
+				3715CD0B21D99BFE002D5A23 /* child3.mp3 in Resources */,
 				37E5534321D36B3100FC4052 /* Main.storyboard in Resources */,
+				3715CD0E21D9A0CD002D5A23 /* goal.mp3 in Resources */,
 				3717E25F21D48CBA0051C977 /* yellow.png in Resources */,
 				3717E25C21D48AE70051C977 /* suzi2.png in Resources */,
 				371D88D121D3A39500560514 /* batu.png in Resources */,

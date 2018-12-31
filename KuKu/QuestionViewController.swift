@@ -9,6 +9,7 @@
 import UIKit
 import AudioToolbox
 import LTMorphingLabel
+import AVFoundation
 
 class QuestionViewController: UIViewController {
     
@@ -41,14 +42,33 @@ class QuestionViewController: UIViewController {
     var result:Int=0
     
 
-    
+    var audioPlayer:AVAudioPlayer!
     //問題数
-    var lastQuestionNum:Int = 0
+    var questionNum:Int = 1
+    //正解数
+    var correctNum:Int = 1
+    //不正解数
+    var incorrectNum:Int = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        do {
+            let filePath = Bundle.main.path(forResource: "child3",ofType: "mp3")
+            
+            let musicPath = URL(fileURLWithPath: filePath!)
+            audioPlayer = try AVAudioPlayer(contentsOf: musicPath)
+            //roop
+            audioPlayer.numberOfLoops = -1
+            
+        } catch {
+            print("error")
+        }
+        
+        showQuestion()
         LTMorphing()
+        
+       
         
         switch modeSecond {
         case 30:
@@ -67,6 +87,9 @@ class QuestionViewController: UIViewController {
         startTimer()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        audioPlayer.play()
+    }
     func LTMorphing(){
         leftLabel.morphingEffect = .anvil
         rightLabel.morphingEffect = .anvil
@@ -81,7 +104,9 @@ class QuestionViewController: UIViewController {
             
             resultVC.modeNum = modeNum
             resultVC.modeSecond = modeSecond
-            resultVC.lastQuestionNum = lastQuestionNum
+            resultVC.correctQuestionNum = correctNum
+            resultVC.incorrectQuestionNum = incorrectNum
+            resultVC.questionNum = questionNum
         }
     }
     //乱数
@@ -104,8 +129,8 @@ class QuestionViewController: UIViewController {
     //回答チェック
     func checkQuestion(){
         if result == answer{
-            lastQuestionNum += 1
-            questionNumLabel.text = String(lastQuestionNum)
+            correctNum += 1
+            questionNumLabel.text = String(correctNum)
             //正解音
             AudioServicesPlayAlertSound(1025)
             
@@ -115,20 +140,20 @@ class QuestionViewController: UIViewController {
             }, completion: { finished in
                 self.maruImageView.alpha = 0.0
             })
-            
+            questionNum += 1
             showQuestion()
         }else{
             //不正解音
             AudioServicesPlayAlertSound(1006)
-            //audioPlayer.pause()
+            
+            incorrectNum += 1
             
             UIView.animate(withDuration: 0.7, animations: {
                 self.batsuImageView.alpha = 1.0
             }, completion: { finished in
                 self.batsuImageView.alpha = 0.0
             })
-            
-            
+            questionNum += 1
         }
         answer = 0
         answerLabel.text = "0"
@@ -200,6 +225,8 @@ class QuestionViewController: UIViewController {
             timerLabel.morphingEffect = .pixelate
         }
         if count < 0{
+            timer.invalidate()
+            audioPlayer.stop()
             self.performSegue(withIdentifier: "toResault", sender: nil)
         }
         

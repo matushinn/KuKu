@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ThirdViewController: UIViewController {
 
+    var audioPlayer:AVAudioPlayer!
     //数字を判別するフラグ
     var modeNum:Int = 0
     
@@ -19,6 +21,19 @@ class ThirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        do {
+            let filePath = Bundle.main.path(forResource: "child1",ofType: "mp3")
+            
+            let musicPath = URL(fileURLWithPath: filePath!)
+            audioPlayer = try AVAudioPlayer(contentsOf: musicPath)
+            //roop
+            audioPlayer.numberOfLoops = -1
+            
+        } catch {
+            print("error")
+        }
     }
     
     @IBAction func modeButton(_ sender: UIButton) {
@@ -32,6 +47,7 @@ class ThirdViewController: UIViewController {
         default:
             break
         }
+        audioPlayer.stop()
         self.performSegue(withIdentifier: "toQuestion", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

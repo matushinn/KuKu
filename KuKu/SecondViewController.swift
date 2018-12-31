@@ -7,21 +7,36 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SecondViewController: UIViewController {
 
     var modeNum:Int = 0
     
+     var audioPlayer:AVAudioPlayer!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        do {
+            let filePath = Bundle.main.path(forResource: "child1",ofType: "mp3")
+            
+            let musicPath = URL(fileURLWithPath: filePath!)
+            audioPlayer = try AVAudioPlayer(contentsOf: musicPath)
+            //roop
+            audioPlayer.numberOfLoops = -1
+            
+        } catch {
+            print("error")
+        }
        
     }
     
     //UIButtonにするとsender.tagが使える
     @IBAction func tappedModeButton(_ sender: UIButton) {
         switch sender.tag {
+       
         case 1:
             modeNum = 1
         case 2:
@@ -51,6 +66,11 @@ class SecondViewController: UIViewController {
             //値渡し
             thirdVC.modeNum = modeNum
         }
+    }
+    
+    @IBAction func back(_ sender: Any) {
+        audioPlayer.stop()
+        self.performSegue(withIdentifier: "toFirst", sender: nil)
     }
     
 

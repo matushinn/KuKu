@@ -8,6 +8,7 @@
 
 import UIKit
 import LTMorphingLabel
+import AVFoundation
 
 class FirstViewController: UIViewController {
 
@@ -17,11 +18,30 @@ class FirstViewController: UIViewController {
     var index = 0
     
     let textList = ["KuKu!!","KUKU!!","kuku!!"]
+    
+    var audioPlayer:AVAudioPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.morphingEffect = .sparkle
 
+        
+        do {
+            let filePath = Bundle.main.path(forResource: "child1",ofType: "mp3")
+            
+            let musicPath = URL(fileURLWithPath: filePath!)
+            audioPlayer = try AVAudioPlayer(contentsOf: musicPath)
+            //roop
+            audioPlayer.numberOfLoops = -1
+            
+        } catch {
+            print("error")
+        }
+        
        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        audioPlayer.play()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -48,6 +68,7 @@ class FirstViewController: UIViewController {
         
     }
     @IBAction func go(_ sender: Any) {
+        audioPlayer.stop()
         self.performSegue(withIdentifier: "toNext", sender: nil)
     }
     
