@@ -84,7 +84,8 @@ class QuestionViewController: UIViewController {
             break
         }
 
-        startTimer()
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(QuestionViewController.update), userInfo: nil, repeats: true)
+    }
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -213,8 +214,10 @@ class QuestionViewController: UIViewController {
         
         answerLabel.text = String(answer)
     }
-    func startTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(QuestionViewController.update), userInfo: nil, repeats: true)
+
+    @IBAction func back(_ sender: Any) {
+        audioPlayer.stop()
+        self.performSegue(withIdentifier: "toFirst", sender: nil)
     }
     
     //    timer
@@ -231,8 +234,9 @@ class QuestionViewController: UIViewController {
         }
         
     }
+
     
-}
+
 extension QuestionViewController: LTMorphingLabelDelegate {
     
     func morphingDidStart(_ label: LTMorphingLabel) {

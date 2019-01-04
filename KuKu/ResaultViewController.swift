@@ -92,7 +92,7 @@ class ResaultViewController: UIViewController {
         UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
         let ratio = round(Double(correctQuestionNum/questionNum)) * 100
         
-        let percent = round(ratio)
+        let percent = ratio
         //円弧のパスを作る
         UIColor.red.setStroke()
         let arcpath = arcPercent(80, Double(percent))

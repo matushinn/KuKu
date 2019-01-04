@@ -12,6 +12,7 @@ import AVFoundation
 
 class FirstViewController: UIViewController {
 
+    
     @IBOutlet weak var titleLabel: LTMorphingLabel!
     
     private var effectTimer: Timer?
@@ -21,6 +22,7 @@ class FirstViewController: UIViewController {
     
     var audioPlayer:AVAudioPlayer!
     
+   //画面生成時に処理
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.morphingEffect = .sparkle
